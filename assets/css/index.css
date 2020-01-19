@@ -46,7 +46,7 @@ nav {
 .links {
   font-size: 18px;
   color: #768088;
-  text-decoration: none;
+  cursor: pointer;
 }
 
 .links:hover {
