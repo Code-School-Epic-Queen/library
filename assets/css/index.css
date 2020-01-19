@@ -75,3 +75,12 @@ h1 {
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
+.container {
+  margin-top: 2rem;
+}
+
+.card {
+  margin: 0 15px;
+  width: 100% !important;
+}
