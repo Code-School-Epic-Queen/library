@@ -17,7 +17,7 @@ h1 {
   font-weight: 300;
 }
 .container-hero{
-  background-image: url('../img/fondo.jpeg');
+  background-image: url('../img/fondo.jpg');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   width: 100%;
@@ -25,8 +25,14 @@ h1 {
 }
 
 .container-logo {
-  width: 150px;
-  height: 75px;
+  width: auto;
+  height: 73px;
+}
+
+.container-avatar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .avatar{
@@ -36,10 +42,10 @@ h1 {
   margin-right: 10px;
 }
 
-.container-avatar {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+.name {
+  color: white;
+  font-size: 1rem;
+  margin: 0;
 }
 
 .container-filters {
@@ -54,9 +60,18 @@ h1 {
   font-size: 18px;
   color: #768088;
   cursor: pointer;
+  margin: 0;
 }
 
 .links:hover {
   font-size: 20px;
   color: #7d7a7a;
+}
+
+.container-cards {
+  margin-top: 50px;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
