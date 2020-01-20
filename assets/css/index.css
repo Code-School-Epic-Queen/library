@@ -17,11 +17,17 @@ h1 {
   font-weight: 300;
 }
 
+h3 {
+  text-align: center;
+}
+
 footer {
   background-color: #252c41;
   display: flex;
   justify-content: space-around;
   padding: 20px 0;
+  position: absolute;
+  width: 100%;
 }
 
 .container-hero{
@@ -90,7 +96,7 @@ footer {
 }
 
 .card {
-  margin: 0 15px;
+  margin: 15px !important;
   width: 100% !important;
 }
 
