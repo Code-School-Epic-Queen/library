@@ -2,7 +2,8 @@
 // convertirlo a CDN https://unpkg.com/
 // CDN https://unpkg.com/fetch-jsonp@1.1.3/build/fetch-jsonp.js 
 const getData = () => {
-  return fetchJsonp('http://www.etnassoft.com/api/v1/get/?category=all', {
+  const protocol = window.location.protocol;
+  return fetchJsonp(`${protocol}//www.etnassoft.com/api/v1/get/?category=all`, {
     method: 'GET'
   }).then(res => res.json())
   .then(response => response)
