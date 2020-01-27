@@ -2,7 +2,7 @@
 // convertirlo a CDN https://unpkg.com/
 // CDN https://unpkg.com/fetch-jsonp@1.1.3/build/fetch-jsonp.js 
 const getData = () => {
-  return fetchJsonp('http://www.etnassoft.com/api/v1/get/?category=all', {
+  return fetch('https://open-libra-proxy.herokuapp.com/?category=all', {
     method: 'GET'
   }).then(res => res.json())
   .then(response => response)
