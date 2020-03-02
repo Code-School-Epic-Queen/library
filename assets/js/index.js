@@ -1,9 +1,5 @@
 const getData = () => {
-<<<<<<< HEAD
-  return fetch('https://open-libra-proxy.herokuapp.com/?category=all', {
-=======
   return fetchJsonp('https://www.googleapis.com/books/v1/volumes?q=FRASE', {
->>>>>>> 0089eb15f2e683e3e20166376a77d148f43c8194
     method: 'GET'
   }).then(res => res.json())
   .then(response => response)
