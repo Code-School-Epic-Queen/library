@@ -1,8 +1,9 @@
-// npm https://www.npmjs.com/package/fetch-jsonp
-// convertirlo a CDN https://unpkg.com/
-// CDN https://unpkg.com/fetch-jsonp@1.1.3/build/fetch-jsonp.js 
 const getData = () => {
+<<<<<<< HEAD
   return fetch('https://open-libra-proxy.herokuapp.com/?category=all', {
+=======
+  return fetchJsonp('https://www.googleapis.com/books/v1/volumes?q=FRASE', {
+>>>>>>> 0089eb15f2e683e3e20166376a77d148f43c8194
     method: 'GET'
   }).then(res => res.json())
   .then(response => response)
@@ -18,13 +19,12 @@ const render = (data) => {
     return `
         <div class="col-sm-12 col-md-3">
           <div class="card" style="width: 18rem;">
-            <img src=${item.thumbnail} class="card-img-top" alt="libro">
+            <img src=${item.volumeInfo.imageLinks.thumbnail} class="card-img-top" alt="libro">
             <div class="card-body">
-              <h5 class="card-title">${item.title}</h5>
-              <p class="card-text">${item.content_short}</p>
-              <p class="card-text">Número de páginas: ${item.pages}</p>
-              <p class="card-text">${item.language}</p>
-              <a href=${item.url_download} target="_blank" class="btn btn-primary">Ver libro</a>
+              <h5 class="card-title">${item.volumeInfo.title}</h5>
+              <p class="card-text">${item.volumeInfo.publisher}</p>
+              <p class="card-text"> Idioma: ${item.volumeInfo.language}</p>
+              <a href=${item.volumeInfo.previewLink} target="_blank" class="btn btn-primary">Ver libro</a>
             </div>
           </div>
         </div>
@@ -37,16 +37,20 @@ const render = (data) => {
 const filter = (type) => {
   if(type === "todos"){
     getData().then(data => {
-      render(data)
+      render(data.items)
     })
   }else{
     getData().then(data => {
       console.log(data, 'data')
-      const categories = data.filter(item => item.categories[0].nicename === type)
-      
+      const categories = data.items.filter((item, index) => {
+        console.log(item, 'item')
+        if(item.volumeInfo.categories){
+          return item.volumeInfo.categories[0] === type
+        }
+      })
       render(categories)
     })
   }
 }
-
-getData().then(data => render(data));
+// se manda a llamar inicialmente
+getData().then(data => render(data.items));
